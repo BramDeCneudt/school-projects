@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ZuulClient
+server:
+  port: 8080
+
+ribbon:
+  eureka:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+zuul:
+  routes:
+    composite:
+      path: /composite/**
+      serviceId: CompositeServiceClient
