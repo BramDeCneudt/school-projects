@@ -1,0 +1,102 @@
+
+a {
+	display: block;
+}
+
+#friends {
+    text-align: center;
+}
+
+.username:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+a > p {
+	margin: 0px;
+}
+
+.chatdiv {
+	border-style: solid;
+	border-color: black;
+	border-width: medium;
+	
+	height: auto;
+	text-align: center;
+}
+
+aside {
+	width: 30%;
+    float: right;
+}
+home {
+    width: 80%;
+}
+
+header {
+    display: block;
+    min-height: 150px;
+    background-color: aquamarine;
+    line-height: 75px;
+    
+    margin: 0px;
+    padding: 0px;
+}
+
+header > h1 {
+    letter-spacing: 50px;
+    line-height: 200px;
+    text-align: center;
+}
+
+.align-right {
+    display: block;
+    float: right;
+    overflow: hidden;
+}
+aside > section {
+    clear: both;
+    margin: 5% 0%;
+    padding: 2%;
+    
+    border-width: medium;
+    border-color: black;
+    border-style: solid;
+}
+
+input {
+    width: 50%;
+}
+
+table {
+	width: 80%;
+	margin: auto;
+}
+
+/*****
+table design
+*****/
+
+table {
+    margin: auto;
+}
+
+table, th, tr, td {
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+th, td {
+    padding: 5%;
+}
+
+
+
+/******
+Bootstrap mods
+*******/
+
+.container {
+    max-width: 800px;
+}

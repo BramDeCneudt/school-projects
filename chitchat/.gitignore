@@ -1,0 +1,8 @@
+/.classpath
+/.settings
+/.project
+/target
+/build/
+
+/angular/node_modules/
+/angular/.idea/
