@@ -1,0 +1,9 @@
+metadata/*
+project.uxf
+/spring-mvc/nbproject/
+/spring-domain/target/
+/spring-domain/nbproject/
+/spring-api/spring-api/target/
+/spring-api/target/
+/spring-api/TestApp/nbproject/private/
+/spring-api/TestApp/build/

@@ -1,0 +1,57 @@
+/*******************
+Bootstrap aanpassingen
+*******************/
+
+.container {
+    max-width: 1000px;
+}
+
+main {
+    min-height: 250px;
+}
+
+figure {
+    display: inline-block;
+}
+
+.grid {
+    width: 100%;
+}
+
+.grid-item {
+
+}
+
+img {
+    display: inline;
+    width: 25%;
+}
+
+#uploadzone {
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    text-align: center;
+    background-color: aqua;
+}
+
+.preview-template {
+    display: inline-block;
+    width: 40%;
+    margin: auto;
+}
+
+footer {
+    border-top-color: black;
+    border-top-style: solid;
+    border-top-width: 2px;
+}
+
+
+/***************
+error aanpassingen
+****************/
+
+span {
+    display: inline-block;
+}

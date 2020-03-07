@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>API GUI</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        section {
+            display: block;
+            border-color: black;
+            border-style: solid;
+            border-width: 5px;
+            margin: 10px 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>API GUI for portfolio</h1>
+        <section>
+            <h2>basic auth</h2>
+            <p>default username and password is admin and root</p>
+            <p>this is needed for admin privileges (marked with the /admin/* url)</p>
+            <p>get projects wordt async gerefreshed</p>
+            <ul>
+                <li>/getprojects</li>
+                <li>/getproject/{id}</li>
+                <li>/admin/addproject met project in body</li>
+                <li>/admin/editproject met project in body</li>
+                <li>/admin/deletproject{id}</li>
+            </ul>
+            <p> I work <select id="workspace">
+                   <option value="external" selected>external</option>
+                    <option value="local">local</option>
+                </select></p>
+            <p>base url: <span id="url"></span></p>
+        </section>
+        <section id="messages" class="alert alert-info">
+            <h3>messages:</h3>
+        </section>
+        <input type="submit" value="clear" id="clearbutton">
+        <input type="submit" value="refresh data" id="refreshbutton">
+        <section id="getprojects">
+            <h2>Get Projects</h2>
+        </section>
+        <section id="getproject">
+            <h2>Get Project</h2>
+
+        </section>
+        <p>projectid: <input type="number" id="numberproject" min="0" value="0"></p>
+        <p><input type="submit" id="submitproject"></p>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+    var baseUrl = 'http://193.191.187.14:10628';
+    $(load);
+
+    function load() {
+        $("#url").html(baseUrl);
+        $("#submitproject").on("click", function() {
+            var id = getValue("#numberproject", 0);
+            getProject(id);
+        });
+
+        $("#refreshbutton").on("click", function() {
+            getProjects();
+        });
+
+        $("#clearbutton").on("click", function() {
+            clearSection("#messages", '<h3>messages:</h3>');
+        });
+
+        $("#workspace").change(function() {
+            var option = getValue("#workspace");
+            var def = 'local';
+
+            if (option == 'local') {
+                baseUrl = 'http://localhost:8080';
+            } else {
+                baseUrl = 'http://193.191.187.14:10628';
+                def = 'external';
+            }
+
+            setValue('#workspace', def);
+            addMessage('base url is: ' + baseUrl);
+            $("#url").html(baseUrl);
+            getProjects();
+        });
+
+        getProjects();
+        setInterval(loadFunctionsRepeat, 10000);
+    }
+
+    function loadFunctionsRepeat() {
+        getProjects();
+    }
+
+    function getProjects() {
+        $.getJSON(baseUrl + "/spring-api/getprojects", function(data) {
+            appendJSONListData("#getprojects", data, '<h2>Get Projects</h2>');
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            addMessage("there is something wrong with getting the projects");
+        });
+    }
+
+    function getProject(id) {
+        encodeURI(id);
+        var url = baseUrl + '/spring-api/getproject/' + id;
+        $.get(url, function(data) {
+            appendJSONData('#getproject', data, '<h2>Get Project</h2>');
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            addMessage("there is somethin wrong with getting the project");
+        });
+
+    }
+
+</script>
+<script>
+    function addMessage(message) {
+        $("#messages").append("<p>" + message + "</p>");
+    }
+
+    function getValue(idValue, defaultValue) {
+        if (typeof defaultValue == 'undefined') {
+            defaultValue = '';
+        };
+
+        var value = $(idValue).val();
+        $(idValue).val(defaultValue);
+
+        return value;
+    }
+
+    function setValue(idValue, defaultValue) {
+        if (typeof defaultValue == 'undefined') {
+            defaultValue = '';
+        };
+
+        $(idValue).val(defaultValue);
+    }
+
+    function clearSection(id, defaultValue) {
+        if (typeof defaultValue == 'undefined') {
+            defaultValue = ''
+        };
+        $(id).html(defaultValue);
+    }
+
+    function appendJSONListData(section, data, defaultValue) {
+        clearSection(section, defaultValue);
+        for (var i = 0; i < data.length; i++) {
+            var project = data[i];
+
+            var p = $("<p></p>");
+            for (var key in project) {
+                p.append(key + ": " + project[key] + " ");
+            }
+            $(section).append(p);
+        };
+    }
+
+    function appendJSONData(section, project, defaultValue) {
+        clearSection(section, defaultValue);
+        var p = $("<p></p>");
+        for (var key in project) {
+            p.append(key + ": " + project[key] + " ");
+        }
+        $(section).append(p);
+
+    }
+
+</script>
+
+
+</html>

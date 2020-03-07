@@ -1,0 +1,60 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+nav {
+    min-height: 20%;
+    display: block;
+}
+
+div {
+    display: block;
+}
+
+
+.container {
+    max-width: 1200px;
+}
+
+
+.fotorama .fotorama__html {
+    font-family: Georgia, serif;
+    font-size: 1000%;
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 100px;
+    line-height: normal;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#portfolio {
+    clear: both;
+    overflow: auto;
+}
+
+#wrapper {
+   float: right;
+    box-sizing:  border-box;
+    width: 85%;
+    display: block;
+    border-left: thick solid #ff0000;
+}
+
+aside {
+    float: left;
+    display: block;
+    width: 15%;
+    height: 100%;
+    box-sizing:  border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+aside h3,li,ol {
+    margin: 0px;
+    padding: 0px;
+}
