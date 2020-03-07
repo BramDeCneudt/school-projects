@@ -1,0 +1,5 @@
+- Verbinden met backend
+- Database connecteren (Derby)
+- mail verzenden via GMAIL
+- Testklassen schrijven --> vind fout schrijf testklasse voor
+-
