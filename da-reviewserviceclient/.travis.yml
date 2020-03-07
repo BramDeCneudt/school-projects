@@ -1,0 +1,16 @@
+before_install:
+- chmod +x mvnw
+language: java
+cache:
+- $HOME/.m2
+sudo: required
+jdk:
+- oraclejdk8
+services:
+- docker
+install:
+- mvn install -DskipTests -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+script:
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+- mvn install dockerfile:build
+- mvn dockerfile:push
