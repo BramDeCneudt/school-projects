@@ -15,7 +15,7 @@
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <jpa.version>2.6.4</jpa.version>
         <derby.version>10.13.1.1</derby.version>
-        <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.4.2.Final</hibernate-validator.version>
         <eclipselink.version>2.5.2</eclipselink.version>
         <spring-web.version>4.0.2.RELEASE</spring-web.version>
         <eclipselink.version>2.5.2</eclipselink.version>
