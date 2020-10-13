@@ -10,7 +10,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <javaee.version>7.0</javaee.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <java.version>1.8</java.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <jpa.version>2.6.4</jpa.version>
