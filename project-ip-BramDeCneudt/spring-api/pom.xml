@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-webmvc.version>4.3.6.RELEASE</spring-webmvc.version>
-        <spring-web-security.version>4.2.2.RELEASE</spring-web-security.version>
+        <spring-web-security.version>5.2.10.RELEASE</spring-web-security.version>
         <spring-security-config.version>4.2.2.RELEASE</spring-security-config.version>
         <spring-domain.version>1.0-SNAPSHOT</spring-domain.version>
     </properties>
